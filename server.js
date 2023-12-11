@@ -3,6 +3,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 const routes = require('./controllers');
+const authRoutes = require('./routes/authRoutes'); // Include auth routes
+const postRoutes = require('./routes/postRoutes'); // Include post routes
+const dashboardRoutes = require('./routes/dashboardRoutes'); // Include dashboard routes
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,15 +30,17 @@ app.engine('handlebars', require('express-handlebars')({ defaultLayout: 'main' }
 app.set('view engine', 'handlebars');
 
 // Use routes
+app.use(authRoutes); // Include authentication routes
+app.use(postRoutes); // Include post routes
+app.use(dashboardRoutes); // Include dashboard routes
 app.use(routes);
 
 // Sync database and start server
 db.sequelize.sync({ force: false }).then(async () => {
-    // This line ensures that associations are applied
-    await db.sequelize.models.User.sync();
-    await db.sequelize.models.Post.sync();
-    await db.sequelize.models.Comment.sync();
+  // This line ensures that associations are applied
+  await db.sequelize.models.User.sync();
+  await db.sequelize.models.Post.sync();
+  await db.sequelize.models.Comment.sync();
   
-    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-  });
-  
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+});
