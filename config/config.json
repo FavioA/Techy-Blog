@@ -1,0 +1,14 @@
+{
+    "development": {
+      "username": "root",
+      "password": "your_password",
+      "database": "your_database",
+      "host": "localhost",
+      "dialect": "mysql"
+    },
+    "production": {
+      "use_env_variable": "CLEARDB_DATABASE_URL",
+      "dialect": "mysql"
+    }
+  }
+  
