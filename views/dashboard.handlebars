@@ -1,0 +1,32 @@
+{{#if user}}
+  <h1>Welcome, {{user.username}}!</h1>
+
+  <section>
+    <h2>Your Blog Posts</h2>
+
+    {{#each user.posts}}
+      <article class="post">
+        <h3>{{title}}</h3>
+        <p>{{content}}</p>
+        <p>Posted on {{createdAt}}</p>
+        <a href="/posts/{{id}}">Read more</a>
+        <form action="/posts/{{id}}/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </article>
+    {{/each}}
+  </section>
+
+  <section>
+    <h2>Create a New Blog Post</h2>
+    <form action="/posts/create" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" rows="4" required></textarea>
+      <button type="submit">Create Post</button>
+    </form>
+  </section>
+{{else}}
+  <p>Please log in to access your dashboard.</p>
+{{/if}}

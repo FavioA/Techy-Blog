@@ -1,0 +1,84 @@
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Global Styles */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  nav {
+    margin-top: 1em;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin-right: 1em;
+  }
+  
+  main {
+    padding: 1em;
+  }
+  
+  /* Blog Post Styles */
+  .post {
+    margin-bottom: 2em;
+  }
+  
+  /* Form Styles */
+  form {
+    margin-top: 1em;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Comment Styles */
+  .comment {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-top: 1em;
+  }
+  
+  /* Error Message Styles */
+  .error-message {
+    color: #ff0000;
+    margin-top: 1em;
+  }
+  
