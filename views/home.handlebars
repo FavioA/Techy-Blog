@@ -1,1 +1,8 @@
-<!-- Home Page Content -->
+{{#each posts}}
+  <article class="post">
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+    <p>Posted by {{user.username}} on {{createdAt}}</p>
+    <a href="/posts/{{id}}">Read more</a>
+  </article>
+{{/each}}
